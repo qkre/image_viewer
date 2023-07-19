@@ -1,0 +1,106 @@
+QDialog {
+	background-color: white;
+}
+
+QFrame { 
+	background-color: white;
+}
+
+QPushButton {
+    color: rgb(58, 134, 255);
+	background-color: white;
+
+	font-size : 11px;
+	font-family : serif;
+	font-weight: 600;
+
+	border: 2px solid rgb(58, 134, 255);
+	border-radius: 10px;
+}
+
+QGroupBox {
+	color: black;
+	background-color: white;
+
+	font-size : 13px;
+	font-family : arial;
+
+	border-radius: 5px;
+}
+
+QTabWidget {
+	font-size : 13px;
+	font-family : arial;
+	font-weight : bold;
+}
+
+/* Tab 1 buttons */
+
+#pushButton1 {
+	color: rgb(204, 134, 255);
+	border: 2px solid rgb(204, 134, 255);
+}
+
+#pushButton2 {
+	color: rgb(204, 134, 255);
+	border: 2px solid rgb(204, 134, 255);
+}
+
+#pushButton3 {
+	color: rgb(204, 134, 255);
+	border: 2px solid rgb(204, 134, 255);
+}
+
+#pushButton4 {
+	color: rgb(204, 134, 255);
+	border: 2px solid rgb(204, 134, 255);
+}
+
+/* Tab 2 buttons */
+
+#pushButton5 {
+	color: rgb(51, 102, 204);
+	border: 2px solid rgb(51, 102, 204);
+}
+
+#pushButton6 {	
+	color: rgb(51, 102, 204);
+	border: 2px solid rgb(51, 102, 204);
+}
+
+#pushButton7 {	
+	color: rgb(51, 102, 204);
+	border: 2px solid rgb(51, 102, 204);
+}
+
+#pushButton8 {	
+	color: rgb(51, 102, 204);
+	border: 2px solid rgb(51, 102, 204);
+}
+
+/* Tab 3 buttons */
+
+#pushButton9 {	
+	color: rgb(255, 102, 102);
+	border: 2px solid rgb(255, 102, 102);
+}
+
+#pushButton10 {	
+	color: rgb(255, 102, 102);
+	border: 2px solid rgb(255, 102, 102);
+}
+
+#pushButton11 {	
+	color: rgb(255, 102, 102);
+	border: 2px solid rgb(255, 102, 102);
+}
+
+#pushButton12 {	
+	color: rgb(255, 102, 102);
+	border: 2px solid rgb(255, 102, 102);
+}
+
+#pushButton13 {	
+	color: rgb(255, 102, 102);
+	border: 2px solid rgb(255, 102, 102);
+}
