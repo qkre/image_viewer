@@ -1,613 +1,455 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>dialog</class>
- <widget class="QDialog" name="dialog">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>800</width>
-    <height>601</height>
-   </rect>
-  </property>
-  <property name="windowTitle">
-   <string>Dialog</string>
-  </property>
-  <widget class="QTabWidget" name="tabWidget">
-   <property name="geometry">
-    <rect>
-     <x>600</x>
-     <y>20</y>
-     <width>181</width>
-     <height>461</height>
-    </rect>
-   </property>
-   <property name="currentIndex">
-    <number>0</number>
-   </property>
-   <widget class="QWidget" name="tab">
-    <attribute name="title">
-     <string>Tab 1</string>
-    </attribute>
-    <widget class="QGroupBox" name="groupBox_2">
-     <property name="enabled">
-      <bool>true</bool>
-     </property>
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>100</y>
-       <width>151</width>
-       <height>151</height>
-      </rect>
-     </property>
-     <property name="mouseTracking">
-      <bool>false</bool>
-     </property>
-     <property name="title">
-      <string>T1_Group2</string>
-     </property>
-     <property name="checkable">
-      <bool>false</bool>
-     </property>
-     <widget class="QPushButton" name="pushButton2">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>20</y>
-        <width>131</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>PushButton2</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_3">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>60</y>
-        <width>131</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#989898;&quot;&gt;hint&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_4">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>130</y>
-        <width>131</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#989898;&quot;&gt;hint&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton3">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>90</y>
-        <width>131</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>PushButton3</string>
-      </property>
-     </widget>
-     <zorder>label_3</zorder>
-     <zorder>label_4</zorder>
-     <zorder>pushButton3</zorder>
-     <zorder>pushButton2</zorder>
+    <class>dialog</class>
+    <widget class="QDialog" name="dialog">
+        <property name="geometry">
+            <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>800</width>
+                <height>601</height>
+            </rect>
+        </property>
+        <property name="windowTitle">
+            <string>Dialog</string>
+        </property>
+        <widget class="QTabWidget" name="tabWidget">
+            <property name="geometry">
+                <rect>
+                    <x>600</x>
+                    <y>20</y>
+                    <width>181</width>
+                    <height>461</height>
+                </rect>
+            </property>
+            <property name="currentIndex">
+                <number>0</number>
+            </property>
+            <widget class="QWidget" name="tab">
+                <attribute name="title">
+                    <string>Tab 1</string>
+                </attribute>
+                <widget class="QGroupBox" name="groupBox_2">
+                    <property name="enabled">
+                        <bool>true</bool>
+                    </property>
+                    <property name="geometry">
+                        <rect>
+                            <x>10</x>
+                            <y>100</y>
+                            <width>151</width>
+                            <height>151</height>
+                        </rect>
+                    </property>
+                    <property name="mouseTracking">
+                        <bool>false</bool>
+                    </property>
+                    <property name="title">
+                        <string>T1_Group2</string>
+                    </property>
+                    <property name="checkable">
+                        <bool>false</bool>
+                    </property>
+                    <widget class="QPushButton" name="pushButton2">
+                        <property name="geometry">
+                            <rect>
+                                <x>10</x>
+                                <y>20</y>
+                                <width>131</width>
+                                <height>31</height>
+                            </rect>
+                        </property>
+                        <property name="text">
+                            <string>PushButton2</string>
+                        </property>
+                    </widget>
+
+                    <widget class="QPushButton" name="pushButton3">
+                        <property name="geometry">
+                            <rect>
+                                <x>10</x>
+                                <y>90</y>
+                                <width>131</width>
+                                <height>31</height>
+                            </rect>
+                        </property>
+                        <property name="text">
+                            <string>PushButton3</string>
+                        </property>
+                    </widget>
+                    <zorder>label_3</zorder>
+                    <zorder>label_4</zorder>
+                    <zorder>pushButton3</zorder>
+                    <zorder>pushButton2</zorder>
+                </widget>
+                <widget class="QGroupBox" name="groupBox_3">
+                    <property name="geometry">
+                        <rect>
+                            <x>10</x>
+                            <y>260</y>
+                            <width>151</width>
+                            <height>81</height>
+                        </rect>
+                    </property>
+                    <property name="title">
+                        <string>T1_Group3</string>
+                    </property>
+                    <widget class="QPushButton" name="pushButton4">
+                        <property name="geometry">
+                            <rect>
+                                <x>10</x>
+                                <y>20</y>
+                                <width>131</width>
+                                <height>31</height>
+                            </rect>
+                        </property>
+                        <property name="text">
+                            <string>PushButton4</string>
+                        </property>
+                    </widget>
+
+                </widget>
+                <widget class="QGroupBox" name="groupBox">
+                    <property name="geometry">
+                        <rect>
+                            <x>10</x>
+                            <y>10</y>
+                            <width>151</width>
+                            <height>81</height>
+                        </rect>
+                    </property>
+                    <property name="title">
+                        <string>T1_Group1</string>
+                    </property>
+
+                    <widget class="QPushButton" name="pushButton1">
+                        <property name="geometry">
+                            <rect>
+                                <x>10</x>
+                                <y>20</y>
+                                <width>131</width>
+                                <height>31</height>
+                            </rect>
+                        </property>
+                        <property name="text">
+                            <string>PushButton1</string>
+                        </property>
+                    </widget>
+                </widget>
+            </widget>
+            <widget class="QWidget" name="tab_2">
+                <attribute name="title">
+                    <string>Tab 2</string>
+                </attribute>
+                <widget class="QGroupBox" name="groupBox_4">
+                    <property name="geometry">
+                        <rect>
+                            <x>10</x>
+                            <y>10</y>
+                            <width>151</width>
+                            <height>81</height>
+                        </rect>
+                    </property>
+                    <property name="title">
+                        <string>T2_Group1</string>
+                    </property>
+                    <widget class="QPushButton" name="pushButton5">
+                        <property name="geometry">
+                            <rect>
+                                <x>10</x>
+                                <y>20</y>
+                                <width>131</width>
+                                <height>31</height>
+                            </rect>
+                        </property>
+                        <property name="text">
+                            <string>PushButton5</string>
+                        </property>
+                    </widget>
+
+                </widget>
+                <widget class="QGroupBox" name="groupBox_6">
+                    <property name="geometry">
+                        <rect>
+                            <x>10</x>
+                            <y>100</y>
+                            <width>151</width>
+                            <height>81</height>
+                        </rect>
+                    </property>
+                    <property name="title">
+                        <string>T2_Group2</string>
+                    </property>
+                    <widget class="QPushButton" name="pushButton6">
+                        <property name="geometry">
+                            <rect>
+                                <x>10</x>
+                                <y>20</y>
+                                <width>131</width>
+                                <height>31</height>
+                            </rect>
+                        </property>
+                        <property name="text">
+                            <string>PushButton6</string>
+                        </property>
+                    </widget>
+
+                </widget>
+                <widget class="QGroupBox" name="groupBox_7">
+                    <property name="geometry">
+                        <rect>
+                            <x>10</x>
+                            <y>190</y>
+                            <width>151</width>
+                            <height>81</height>
+                        </rect>
+                    </property>
+                    <property name="title">
+                        <string>T2_Group3</string>
+                    </property>
+                    <widget class="QPushButton" name="pushButton7">
+                        <property name="geometry">
+                            <rect>
+                                <x>10</x>
+                                <y>20</y>
+                                <width>131</width>
+                                <height>31</height>
+                            </rect>
+                        </property>
+                        <property name="text">
+                            <string>PushButton7</string>
+                        </property>
+                    </widget>
+
+                </widget>
+                <widget class="QGroupBox" name="groupBox_8">
+                    <property name="geometry">
+                        <rect>
+                            <x>10</x>
+                            <y>280</y>
+                            <width>151</width>
+                            <height>81</height>
+                        </rect>
+                    </property>
+                    <property name="title">
+                        <string>T2_Group4</string>
+                    </property>
+                    <widget class="QPushButton" name="pushButton8">
+                        <property name="geometry">
+                            <rect>
+                                <x>10</x>
+                                <y>20</y>
+                                <width>131</width>
+                                <height>31</height>
+                            </rect>
+                        </property>
+                        <property name="text">
+                            <string>PushButton8</string>
+                        </property>
+                    </widget>
+
+                </widget>
+            </widget>
+            <widget class="QWidget" name="tab_3">
+                <attribute name="title">
+                    <string>Tab 3</string>
+                </attribute>
+                <widget class="QGroupBox" name="groupBox_5">
+                    <property name="geometry">
+                        <rect>
+                            <x>10</x>
+                            <y>10</y>
+                            <width>151</width>
+                            <height>81</height>
+                        </rect>
+                    </property>
+                    <property name="title">
+                        <string>T3_Group1</string>
+                    </property>
+                    <widget class="QPushButton" name="pushButton9">
+                        <property name="geometry">
+                            <rect>
+                                <x>10</x>
+                                <y>20</y>
+                                <width>131</width>
+                                <height>31</height>
+                            </rect>
+                        </property>
+                        <property name="text">
+                            <string>PushButton9</string>
+                        </property>
+                    </widget>
+
+                </widget>
+                <widget class="QGroupBox" name="groupBox_9">
+                    <property name="geometry">
+                        <rect>
+                            <x>10</x>
+                            <y>100</y>
+                            <width>151</width>
+                            <height>81</height>
+                        </rect>
+                    </property>
+                    <property name="title">
+                        <string>T3_Group2</string>
+                    </property>
+                    <widget class="QPushButton" name="pushButton10">
+                        <property name="geometry">
+                            <rect>
+                                <x>10</x>
+                                <y>20</y>
+                                <width>131</width>
+                                <height>31</height>
+                            </rect>
+                        </property>
+                        <property name="text">
+                            <string>PushButton10</string>
+                        </property>
+                    </widget>
+
+                </widget>
+                <widget class="QGroupBox" name="groupBox_10">
+                    <property name="geometry">
+                        <rect>
+                            <x>10</x>
+                            <y>190</y>
+                            <width>151</width>
+                            <height>81</height>
+                        </rect>
+                    </property>
+                    <property name="title">
+                        <string>T3_Group3</string>
+                    </property>
+                    <widget class="QPushButton" name="pushButton11">
+                        <property name="geometry">
+                            <rect>
+                                <x>10</x>
+                                <y>20</y>
+                                <width>131</width>
+                                <height>31</height>
+                            </rect>
+                        </property>
+                        <property name="text">
+                            <string>PushButton11</string>
+                        </property>
+                    </widget>
+
+                </widget>
+                <widget class="QGroupBox" name="groupBox_11">
+                    <property name="geometry">
+                        <rect>
+                            <x>10</x>
+                            <y>280</y>
+                            <width>151</width>
+                            <height>151</height>
+                        </rect>
+                    </property>
+                    <property name="title">
+                        <string>T3_Group4</string>
+                    </property>
+                    <widget class="QPushButton" name="pushButton12">
+                        <property name="geometry">
+                            <rect>
+                                <x>10</x>
+                                <y>20</y>
+                                <width>131</width>
+                                <height>31</height>
+                            </rect>
+                        </property>
+                        <property name="text">
+                            <string>PushButton12</string>
+                        </property>
+                    </widget>
+
+                    <widget class="QPushButton" name="pushButton13">
+                        <property name="geometry">
+                            <rect>
+                                <x>10</x>
+                                <y>90</y>
+                                <width>131</width>
+                                <height>31</height>
+                            </rect>
+                        </property>
+                        <property name="text">
+                            <string>PushButton13</string>
+                        </property>
+                    </widget>
+                </widget>
+            </widget>
+        </widget>
+        <widget class="QGroupBox" name="groupBox_12">
+            <property name="geometry">
+                <rect>
+                    <x>20</x>
+                    <y>520</y>
+                    <width>371</width>
+                    <height>71</height>
+                </rect>
+            </property>
+            <property name="title">
+                <string>Slider1</string>
+            </property>
+            <widget class="QSlider" name="horizontalSlider1">
+                <property name="geometry">
+                    <rect>
+                        <x>20</x>
+                        <y>30</y>
+                        <width>331</width>
+                        <height>22</height>
+                    </rect>
+                </property>
+                <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                </property>
+            </widget>
+        </widget>
+        <widget class="QGroupBox" name="groupBox_13">
+            <property name="geometry">
+                <rect>
+                    <x>410</x>
+                    <y>520</y>
+                    <width>371</width>
+                    <height>71</height>
+                </rect>
+            </property>
+            <property name="title">
+                <string>Slider2</string>
+            </property>
+            <widget class="QSlider" name="horizontalSlider2">
+                <property name="geometry">
+                    <rect>
+                        <x>20</x>
+                        <y>30</y>
+                        <width>331</width>
+                        <height>22</height>
+                    </rect>
+                </property>
+                <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                </property>
+            </widget>
+        </widget>
+        <widget class="QFrame" name="frame">
+            <property name="geometry">
+                <rect>
+                    <x>20</x>
+                    <y>20</y>
+                    <width>551</width>
+                    <height>461</height>
+                </rect>
+            </property>
+            <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+            </property>
+        </widget>
+        <zorder>tabWidget</zorder>
+        <zorder>groupBox_13</zorder>
+        <zorder>groupBox_12</zorder>
+        <zorder>frame</zorder>
     </widget>
-    <widget class="QGroupBox" name="groupBox_3">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>260</y>
-       <width>151</width>
-       <height>81</height>
-      </rect>
-     </property>
-     <property name="title">
-      <string>T1_Group3</string>
-     </property>
-     <widget class="QPushButton" name="pushButton4">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>20</y>
-        <width>131</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>PushButton4</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_6">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>60</y>
-        <width>131</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#989898;&quot;&gt;hint&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QGroupBox" name="groupBox">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>10</y>
-       <width>151</width>
-       <height>81</height>
-      </rect>
-     </property>
-     <property name="title">
-      <string>T1_Group1</string>
-     </property>
-     <widget class="QLabel" name="label">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>60</y>
-        <width>131</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#989898;&quot;&gt;hint&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton1">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>20</y>
-        <width>131</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>PushButton1</string>
-      </property>
-     </widget>
-    </widget>
-   </widget>
-   <widget class="QWidget" name="tab_2">
-    <attribute name="title">
-     <string>Tab 2</string>
-    </attribute>
-    <widget class="QGroupBox" name="groupBox_4">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>10</y>
-       <width>151</width>
-       <height>81</height>
-      </rect>
-     </property>
-     <property name="title">
-      <string>T2_Group1</string>
-     </property>
-     <widget class="QPushButton" name="pushButton5">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>20</y>
-        <width>131</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>PushButton5</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_7">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>60</y>
-        <width>131</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#989898;&quot;&gt;hint&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QGroupBox" name="groupBox_6">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>100</y>
-       <width>151</width>
-       <height>81</height>
-      </rect>
-     </property>
-     <property name="title">
-      <string>T2_Group2</string>
-     </property>
-     <widget class="QPushButton" name="pushButton6">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>20</y>
-        <width>131</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>PushButton6</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_9">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>60</y>
-        <width>131</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#989898;&quot;&gt;hint&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QGroupBox" name="groupBox_7">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>190</y>
-       <width>151</width>
-       <height>81</height>
-      </rect>
-     </property>
-     <property name="title">
-      <string>T2_Group3</string>
-     </property>
-     <widget class="QPushButton" name="pushButton7">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>20</y>
-        <width>131</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>PushButton7</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_10">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>60</y>
-        <width>131</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#989898;&quot;&gt;hint&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QGroupBox" name="groupBox_8">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>280</y>
-       <width>151</width>
-       <height>81</height>
-      </rect>
-     </property>
-     <property name="title">
-      <string>T2_Group4</string>
-     </property>
-     <widget class="QPushButton" name="pushButton8">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>20</y>
-        <width>131</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>PushButton8</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_13">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>60</y>
-        <width>131</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#989898;&quot;&gt;hint&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-    </widget>
-   </widget>
-   <widget class="QWidget" name="tab_3">
-    <attribute name="title">
-     <string>Tab 3</string>
-    </attribute>
-    <widget class="QGroupBox" name="groupBox_5">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>10</y>
-       <width>151</width>
-       <height>81</height>
-      </rect>
-     </property>
-     <property name="title">
-      <string>T3_Group1</string>
-     </property>
-     <widget class="QPushButton" name="pushButton9">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>20</y>
-        <width>131</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>PushButton9</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_8">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>60</y>
-        <width>131</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#989898;&quot;&gt;hint&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QGroupBox" name="groupBox_9">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>100</y>
-       <width>151</width>
-       <height>81</height>
-      </rect>
-     </property>
-     <property name="title">
-      <string>T3_Group2</string>
-     </property>
-     <widget class="QPushButton" name="pushButton10">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>20</y>
-        <width>131</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>PushButton10</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_14">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>60</y>
-        <width>131</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#989898;&quot;&gt;hint&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QGroupBox" name="groupBox_10">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>190</y>
-       <width>151</width>
-       <height>81</height>
-      </rect>
-     </property>
-     <property name="title">
-      <string>T3_Group3</string>
-     </property>
-     <widget class="QPushButton" name="pushButton11">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>20</y>
-        <width>131</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>PushButton11</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_15">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>60</y>
-        <width>131</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#989898;&quot;&gt;hint&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QGroupBox" name="groupBox_11">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>280</y>
-       <width>151</width>
-       <height>151</height>
-      </rect>
-     </property>
-     <property name="title">
-      <string>T3_Group4</string>
-     </property>
-     <widget class="QPushButton" name="pushButton12">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>20</y>
-        <width>131</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>PushButton12</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_16">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>60</y>
-        <width>131</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#989898;&quot;&gt;hint&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_17">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>130</y>
-        <width>131</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#989898;&quot;&gt;hint&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton13">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>90</y>
-        <width>131</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>PushButton13</string>
-      </property>
-     </widget>
-    </widget>
-   </widget>
-  </widget>
-  <widget class="QGroupBox" name="groupBox_12">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>520</y>
-     <width>371</width>
-     <height>71</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>Slider1</string>
-   </property>
-   <widget class="QSlider" name="horizontalSlider1">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>30</y>
-      <width>331</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QGroupBox" name="groupBox_13">
-   <property name="geometry">
-    <rect>
-     <x>410</x>
-     <y>520</y>
-     <width>371</width>
-     <height>71</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>Slider2</string>
-   </property>
-   <widget class="QSlider" name="horizontalSlider2">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>30</y>
-      <width>331</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QFrame" name="frame">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>20</y>
-     <width>551</width>
-     <height>461</height>
-    </rect>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
-   </property>
-  </widget>
-  <zorder>tabWidget</zorder>
-  <zorder>groupBox_13</zorder>
-  <zorder>groupBox_12</zorder>
-  <zorder>frame</zorder>
- </widget>
- <resources/>
- <connections/>
+    <resources/>
+    <connections/>
 </ui>
