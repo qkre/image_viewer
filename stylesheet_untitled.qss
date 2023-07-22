@@ -56,6 +56,21 @@ QTabWidget {
 	border: 2px solid rgb(204, 134, 255);
 }
 
+#pushButton4_2 {
+	color: rgb(204, 134, 255);
+	border: 2px solid rgb(204, 134, 255);
+}
+
+#pushButton4_3 {
+	color: rgb(204, 134, 255);
+	border: 2px solid rgb(204, 134, 255);
+}
+
+#pushButton4_4 {
+	color: rgb(204, 134, 255);
+	border: 2px solid rgb(204, 134, 255);
+}
+
 /* Tab 2 buttons */
 
 #pushButton5 {
