@@ -154,7 +154,9 @@ class Ui_dialog(object):
         self.pushButton4_4.setText(_translate("dialog", "V"))
         self.groupBox.setTitle(_translate("dialog", "T1_Group1"))
         self.pushButton1.setText(_translate("dialog", "PushButton1"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("dialog", "Tab 1"))
+        self.tabWidget.setTabText(
+            self.tabWidget.indexOf(self.tab), _translate("dialog", "Tab 1")
+        )
         self.groupBox_4.setTitle(_translate("dialog", "T2_Group1"))
         self.pushButton5.setText(_translate("dialog", "PushButton5"))
         self.groupBox_6.setTitle(_translate("dialog", "T2_Group2"))
@@ -163,7 +165,9 @@ class Ui_dialog(object):
         self.pushButton7.setText(_translate("dialog", "PushButton7"))
         self.groupBox_8.setTitle(_translate("dialog", "T2_Group4"))
         self.pushButton8.setText(_translate("dialog", "PushButton8"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("dialog", "Tab 2"))
+        self.tabWidget.setTabText(
+            self.tabWidget.indexOf(self.tab_2), _translate("dialog", "Tab 2")
+        )
         self.groupBox_5.setTitle(_translate("dialog", "T3_Group1"))
         self.pushButton9.setText(_translate("dialog", "PushButton9"))
         self.groupBox_9.setTitle(_translate("dialog", "T3_Group2"))
@@ -173,6 +177,8 @@ class Ui_dialog(object):
         self.groupBox_11.setTitle(_translate("dialog", "T3_Group4"))
         self.pushButton12.setText(_translate("dialog", "PushButton12"))
         self.pushButton13.setText(_translate("dialog", "PushButton13"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), _translate("dialog", "Tab 3"))
+        self.tabWidget.setTabText(
+            self.tabWidget.indexOf(self.tab_3), _translate("dialog", "Tab 3")
+        )
         self.groupBox_12.setTitle(_translate("dialog", "Slider1"))
         self.groupBox_13.setTitle(_translate("dialog", "Slider2"))
