@@ -33,6 +33,10 @@ class WindowClass(QMainWindow, form_class):
         self.pushButton4.setText("Crop Image")
         self.pushButton4.clicked.connect(self.start_crop_mode)
 
+        self.pushButton4_2.clicked.connect(self.toggle_h_adjustment)
+        self.pushButton4_3.clicked.connect(self.toggle_s_adjustment)
+        self.pushButton4_4.clicked.connect(self.toggle_v_adjustment)
+
         # 탭 2
         self.pushButton5.setText("Convert to Lab Image")
         self.pushButton5.clicked.connect(self.cvt_lab_image)
@@ -52,6 +56,9 @@ class WindowClass(QMainWindow, form_class):
         self.horizontalSlider1.setMaximum(400)
         self.horizontalSlider1.setValue(100)
         self.horizontalSlider1.valueChanged.connect(self.on_slider_value_changed)
+
+        # 슬라이더 2
+        self.horizontalSlider2.valueChanged.connect(self.on_slider2_value_changed)
 
         # 이미지 영역
         self.scroll_area = ScrollAreaWithDrag(self.frame)
@@ -73,6 +80,9 @@ class WindowClass(QMainWindow, form_class):
         self.crop_start = None
         self.crop_end = None
         self.crop_rectangle = None
+        self.is_h_adjuseted = False
+        self.is_s_adjuseted = False
+        self.is_v_adjuseted = False
 
     def start_crop_mode(self):
         self.is_crop_mode = True
@@ -374,3 +384,95 @@ class WindowClass(QMainWindow, form_class):
                 self.display_image(sharpened_image)
                 self.pushButton8.setText("Restore Original")  # 버튼 텍스트 변경
                 self.is_sharpen = True
+
+    def on_slider2_value_changed(self):
+        if self.is_h_adjuseted:
+            self.cvt_h_based_on_slider()
+        if self.is_s_adjuseted:
+            self.cvt_s_based_on_slider()
+        if self.is_v_adjuseted:
+            self.cvt_v_based_on_slider()
+
+    def toggle_h_adjustment(self):
+        self.is_h_adjuseted = not self.is_h_adjuseted
+
+        if self.is_h_adjuseted:
+            self.pushButton4_2.setStyleSheet("background-color: lightgreen;")
+            self.is_s_adjuseted = False
+            self.pushButton4_3.setStyleSheet("")  # 기본 스타일로 복귀
+            self.is_v_adjuseted = False
+            self.pushButton4_4.setStyleSheet("")  # 기본 스타일로 복귀
+
+        else:
+            # H 조절 비활성화
+            self.pushButton4_2.setStyleSheet("")  # 기본 스타일로 복귀
+            self.display_image(self.resized_image)  # 원본 이미지로 복귀
+
+    def toggle_s_adjustment(self):
+        self.is_s_adjuseted = not self.is_s_adjuseted
+
+        if self.is_s_adjuseted:
+            self.pushButton4_3.setStyleSheet("background-color: lightgreen;")
+            self.is_h_adjuseted = False
+            self.pushButton4_2.setStyleSheet("")  # 기본 스타일로 복귀
+            self.is_v_adjuseted = False
+            self.pushButton4_4.setStyleSheet("")  # 기본 스타일로 복귀
+        else:
+            # H 조절 비활성화
+            self.pushButton4_3.setStyleSheet("")  # 기본 스타일로 복귀
+            self.display_image(self.resized_image)  # 원본 이미지로 복귀
+
+    def toggle_v_adjustment(self):
+        self.is_v_adjuseted = not self.is_v_adjuseted
+
+        if self.is_v_adjuseted:
+            self.pushButton4_4.setStyleSheet("background-color: lightgreen;")
+            self.is_h_adjuseted = False
+            self.pushButton4_2.setStyleSheet("")  # 기본 스타일로 복귀
+            self.is_s_adjuseted = False
+            self.pushButton4_3.setStyleSheet("")  # 기본 스타일로 복귀
+        else:
+            # H 조절 비활성화
+            self.pushButton4_4.setStyleSheet("")  # 기본 스타일로 복귀
+            self.display_image(self.resized_image)  # 원본 이미지로 복귀
+
+    def get_slider_value(self):
+        return self.horizontalSlider2.value()
+
+    def cvt_h_based_on_slider(self):
+        if self.is_h_adjuseted:
+            value = self.get_slider_value()
+
+            # 이미지를 HSV로 변환
+            hsv_image = cv2.cvtColor(self.resized_image, cv2.COLOR_RGB2HSV)
+
+            # H 채널만 뽑아내기
+            h_channel = hsv_image[:, :, 0]
+
+            # 슬라이더 값만큼 H 값을 조절 (이 부분은 원하는 변환에 따라 조절해야 합니다)
+            adjusted_h_channel = np.mod(h_channel + value, 180)  # H는 0~179의 값을 가짐
+
+            # 변환된 H 채널을 이미지에 다시 적용
+            hsv_image[:, :, 0] = adjusted_h_channel
+
+            # HSV 이미지를 RGB로 다시 변환
+            rgb_image = cv2.cvtColor(hsv_image, cv2.COLOR_HSV2RGB)
+
+            # 이미지 라벨에 변환된 이미지 표시
+            self.display_image(rgb_image)
+
+    def cvt_s_based_on_slider(self):
+        if self.is_s_adjuseted:
+            s_value = self.horizontalSlider2.value()
+            hsv_image = cv2.cvtColor(self.resized_image, cv2.COLOR_RGB2HSV)
+            hsv_image[:, :, 1] = np.clip(hsv_image[:, :, 1] + s_value, 0, 255)
+            rgb_image = cv2.cvtColor(hsv_image, cv2.COLOR_HSV2RGB)
+            self.display_image(rgb_image)
+
+    def cvt_v_based_on_slider(self):
+        if self.is_v_adjuseted:
+            v_value = self.horizontalSlider2.value()
+            hsv_image = cv2.cvtColor(self.resized_image, cv2.COLOR_RGB2HSV)
+            hsv_image[:, :, 2] = np.clip(hsv_image[:, :, 2] + v_value, 0, 255)
+            rgb_image = cv2.cvtColor(hsv_image, cv2.COLOR_HSV2RGB)
+            self.display_image(rgb_image)
