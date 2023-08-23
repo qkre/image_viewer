@@ -1,6 +1,40 @@
-from PyQt5.QtWidgets import QScrollArea, QLabel
+from PyQt5.QtWidgets import QScrollArea, QLabel, QFrame, QVBoxLayout
 from PyQt5.QtGui import QPainter, QPen, QColor
-from PyQt5.QtCore import Qt, QRect
+from PyQt5.QtCore import Qt, QRect, QTimer
+
+
+class TempPopup(QFrame):
+    def __init__(self, parent=None):
+        super(TempPopup, self).__init__(parent)
+        self.setWindowFlags(Qt.SplashScreen | Qt.FramelessWindowHint)
+        self.timer = QTimer(self)
+        self.timer.timeout.connect(self.hide)
+
+        # Set the style for the frame
+        self.setStyleSheet(
+            "border: 2px solid black;"  # Border
+            "background-color: white;"  # Background color
+            "border-radius: 5px;"  # Rounded corners
+        )
+
+        self.layout = QVBoxLayout(self)
+        self.message_label = QLabel(self)
+        self.message_label.setStyleSheet(
+            "font-size: 18px; padding: 10px;" "border: None;"
+        )
+        self.layout.addWidget(self.message_label)
+
+    def show_message(self, message, duration=2000):
+        self.message_label.setText(message)
+        self.adjustSize()  # Adjust to fit the text
+        # Position the label at the top center of the parent (or screen if no parent)
+        if self.parent():
+            self.move(
+                self.parent().width() / 2 + self.width() * 2,
+                self.parent().height() / 2 + self.height() * 2,
+            )
+        self.show()
+        self.timer.start(duration)
 
 
 class ScrollAreaWithDrag(QScrollArea):
