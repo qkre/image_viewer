@@ -272,7 +272,7 @@ class WindowClass(QMainWindow, form_class):
     def cvt_gray_scale(self):
         # 이미지를 그레이스케일로 변환
         pixmap = self.image_label.pixmap()
-        self.popUP.show_message("Gray", 1000)
+
         if pixmap is not None:
             if self.is_grayScale:
                 # 이미 그레이스케일로 변환된 경우 원본 이미지로 복원
@@ -280,6 +280,7 @@ class WindowClass(QMainWindow, form_class):
                 self.pushButton2.setText("Convert to Gray Scale")
             else:
                 # 그레이스케일로 이미지 변환
+                self.popUP.show_message("Convert to Gray Scale", 1000)
                 image = pixmap.toImage()
                 gray_image = image.convertToFormat(QImage.Format_Grayscale8)
                 pixmap = QPixmap.fromImage(gray_image)
@@ -298,6 +299,7 @@ class WindowClass(QMainWindow, form_class):
                 self.pushButton3.setText("Convert to HSV")
             else:
                 # 이미지를 HSV로 변환
+                self.popUP.show_message("Convert to HSV", 1000)
                 ptr = pixmap.toImage().bits()
                 ptr.setsize(pixmap.height() * pixmap.width() * 4)
                 image_arr = np.frombuffer(ptr, np.uint8).reshape(
@@ -330,6 +332,7 @@ class WindowClass(QMainWindow, form_class):
                 self.is_lab = False
             else:
                 # 이미지를 LAB로 변환
+                self.popUP.show_message("Convert to Lab Image", 1000)
                 lab_image = cv2.cvtColor(image, cv2.COLOR_BGR2LAB)
                 height, width, channel = lab_image.shape
                 bytes_per_line = channel * width
@@ -353,6 +356,7 @@ class WindowClass(QMainWindow, form_class):
                 self.is_invert = False
             else:
                 # 이미지 색상 반전
+                self.popUP.show_message("Convert to Invert Image", 1000)
                 invert_image = cv2.bitwise_not(image)
                 height, width, channel = invert_image.shape
                 bytes_per_line = channel * width
@@ -380,6 +384,7 @@ class WindowClass(QMainWindow, form_class):
                 self.is_blur = False
             else:
                 # 이미지에 가우시안 블러 효과 적용
+                self.pushButton8.setText("Convert to GaussianBlur Image")
                 blurred_image = cv2.GaussianBlur(image, (5, 5), 0)
                 height, width, channel = blurred_image.shape
                 bytes_per_line = channel * width
@@ -407,6 +412,7 @@ class WindowClass(QMainWindow, form_class):
                 self.is_sharpen = False
             else:
                 # 이미지에 샤프닝 효과 적용
+                self.popUP.show_message("Convert to Sharpen Image", 1000)
                 sharpen_kernel = np.array([[-1, -1, -1], [-1, 9, -1], [-1, -1, -1]])
                 sharpened_image = cv2.filter2D(image, -1, sharpen_kernel)
                 self.display_image(sharpened_image)
@@ -428,6 +434,7 @@ class WindowClass(QMainWindow, form_class):
         # H(색조) 조절 모드를 토글하는 함수
         self.is_h_adjuseted = not self.is_h_adjuseted
         if self.is_h_adjuseted:
+            self.popUP.show_message("Convert to H Scale", 1000)
             self.pushButton4_2.setStyleSheet("background-color: lightgreen;")
             self.is_s_adjuseted = False
             self.pushButton4_3.setStyleSheet("")  # 기본 스타일로 복귀
@@ -441,6 +448,7 @@ class WindowClass(QMainWindow, form_class):
         # S(채도) 조절 모드를 토글하는 함수
         self.is_s_adjuseted = not self.is_s_adjuseted
         if self.is_s_adjuseted:
+            self.popUP.show_message("Convert to S Scale", 1000)
             self.pushButton4_3.setStyleSheet("background-color: lightgreen;")
             self.is_h_adjuseted = False
             self.pushButton4_2.setStyleSheet("")
@@ -454,6 +462,7 @@ class WindowClass(QMainWindow, form_class):
         # V(밝기) 조절 모드를 토글하는 함수
         self.is_v_adjuseted = not self.is_v_adjuseted
         if self.is_v_adjuseted:
+            self.popUP.show_message("Convert to V Scale", 1000)
             self.pushButton4_4.setStyleSheet("background-color: lightgreen;")
             self.is_h_adjuseted = False
             self.pushButton4_2.setStyleSheet("")

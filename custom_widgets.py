@@ -1,6 +1,6 @@
-from PyQt5.QtWidgets import QScrollArea, QLabel, QFrame, QVBoxLayout
-from PyQt5.QtGui import QPainter, QPen, QColor
-from PyQt5.QtCore import Qt, QRect, QTimer
+from PyQt5.QtWidgets import *
+from PyQt5.QtGui import *
+from PyQt5.QtCore import *
 
 
 class TempPopup(QFrame):
@@ -20,19 +20,23 @@ class TempPopup(QFrame):
         self.layout = QVBoxLayout(self)
         self.message_label = QLabel(self)
         self.message_label.setStyleSheet(
-            "font-size: 18px; padding: 10px;" "border: None;"
+            "font-size: 18px; padding: 2px 4px;" "border: None;"
         )
         self.layout.addWidget(self.message_label)
 
     def show_message(self, message, duration=2000):
         self.message_label.setText(message)
         self.adjustSize()  # Adjust to fit the text
-        # Position the label at the top center of the parent (or screen if no parent)
+
         if self.parent():
-            self.move(
-                self.parent().width() / 2 + self.width() * 2,
-                self.parent().height() / 2 + self.height() * 2,
-            )
+            parent_widget = (
+                self.parent().image_label
+            )  # Referencing the image_label in parent
+            global_position = parent_widget.mapToGlobal(QPoint(0, 0))
+            # Calculate the position relative to the global coordinates of the image_label
+            x_pos = global_position.x() + (parent_widget.width() - self.width()) / 2
+            y_pos = global_position.y()  # Positioning at the top of image_label
+            self.move(x_pos, y_pos)
         self.show()
         self.timer.start(duration)
 
