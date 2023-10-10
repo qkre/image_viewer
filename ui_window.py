@@ -60,6 +60,24 @@ class WindowClass(QMainWindow, form_class):
         self.pushButton8.setText("Convert to Sharpen Image")
         self.pushButton8.clicked.connect(self.cvt_sharpen_image)
 
+        # 탭 3
+        self.pushButton9.setText("Convert to Rotate Image")
+        self.pushButton9.clicked.connect(self.rotate_image)
+        
+        self.pushButton10.setText("Add Text")
+        self.pushButton10.clicked.connect(self.add_text)
+        
+        self.pushButton11.setText("Chroma Key")
+        self.pushButton11.clicked.connect(self.chroma_key)
+        
+        self.pushButton12.setText("Crop Image")
+        self.pushButton12.clicked.connect(self.crop_image)
+        self.crop_start = None
+        self.crop_end = None
+        
+        self.pushButton13.setText("Save Image")
+        self.pushButton13.clicked.connect(self.save_image)
+        
         # 슬라이더 1
         # 이미지 크기 조정 슬라이더 설정
         self.groupBox_12.setTitle("Image Size")
@@ -504,3 +522,151 @@ class WindowClass(QMainWindow, form_class):
             hsv_image[:, :, 2] = np.clip(hsv_image[:, :, 2] + v_value, 0, 255)
             rgb_image = cv2.cvtColor(hsv_image, cv2.COLOR_HSV2RGB)
             self.display_image(rgb_image)
+    def rotate_image(self):
+        if hasattr(self, 'resized_image'):
+            # 이미지가 로드되었는지 확인
+            angle, ok = QInputDialog.getInt(self, "Rotate Image", "Enter rotation angle (in degrees):", 0, -360, 360)
+            if ok:
+                # 사용자가 각도를 입력하고 확인을 눌렀을 때만 회전
+                rotated_image = self.rotate_cvimage(self.resized_image, angle)
+                if rotated_image is not None:
+                    self.display_image(rotated_image)
+
+    def rotate_cvimage(self, image, angle):
+        # 이미지 회전 함수
+        if image is None:
+            return None
+
+        height, width = image.shape[:2]
+        rotation_matrix = cv2.getRotationMatrix2D((width / 2, height / 2), angle, 1)
+        rotated_image = cv2.warpAffine(image, rotation_matrix, (width, height), flags=cv2.INTER_LINEAR)
+        return rotated_image
+    
+    def add_text(self):
+        if self.resized_image is None:
+            return
+
+        # Create a copy of the resized image to draw on
+        edited_image = self.resized_image.copy()
+        
+        # Create a QPainter to draw on the image
+        painter = QPainter()
+        painter.begin(edited_image)
+        painter.setRenderHint(QPainter.Antialiasing)  # For smoother text rendering
+
+        # Define text properties
+        text = "Hello, PyQt5!"
+        font = QFont("Arial", 20)
+        font.setBold(True)
+        font.setItalic(True)
+        painter.setFont(font)
+        text_color = Qt.red
+
+        # Draw text
+        painter.setPen(text_color)
+        painter.drawText(50, 50, text)
+
+        # End painting
+        painter.end()
+
+        # Display the edited image
+        self.display_image(edited_image)
+
+    def chroma_key(self):
+        if hasattr(self, 'resized_image'):
+            # 이미지가 로드되었는지 확인
+            chroma_keyed_image = self.perform_chroma_key(self.resized_image)
+            if chroma_keyed_image is not None:
+                self.display_image(chroma_keyed_image)
+
+    def perform_chroma_key(self, image):
+        # 크로마키 처리를 위한 작업
+        # 파란색 배경 대신 초록색 배경으로 변경
+        if image is None:
+            return None
+
+        # 파란색 배경 색상 범위
+        lower_blue = np.array([90, 50, 50])
+        upper_blue = np.array([130, 255, 255])
+
+        # 이미지를 HSV 색상 공간으로 변환
+        hsv_image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+
+        # 파란색 배경에 해당하는 마스크 생성
+        mask = cv2.inRange(hsv_image, lower_blue, upper_blue)
+
+        # 마스크를 사용하여 원래 이미지의 배경을 초록색으로 대체
+        image[mask > 0] = [0, 255, 0]
+
+        return image
+    
+    def crop_image(self):
+        if hasattr(self, 'resized_image'):
+            # 이미지가 로드되었는지 확인
+            self.image_label.setCursor(Qt.CrossCursor)  # 마우스 커서를 십자 모양으로 변경
+            self.image_label.mousePressEvent = self.start_crop
+            self.image_label.mouseMoveEvent = self.update_crop
+            self.image_label.mouseReleaseEvent = self.end_crop
+
+    def start_crop(self, event):
+        self.crop_start = event.pos()
+        self.crop_end = event.pos()
+
+    def update_crop(self, event):
+        self.crop_end = event.pos()
+
+    def end_crop(self, event):
+        if self.crop_start is not None and self.crop_end is not None:
+            # 자르기 시작점과 끝점을 기반으로 자르기 영역 계산
+            x1, y1 = self.crop_start.x(), self.crop_start.y()
+            x2, y2 = self.crop_end.x(), self.crop_end.y()
+
+            # 자르기 영역을 정사각형으로 만들기
+            width = abs(x2 - x1)
+            height = abs(y2 - y1)
+            size = min(width, height)
+            if x2 < x1:
+                x1 = x2 - size
+            else:
+                x2 = x1 + size
+            if y2 < y1:
+                y1 = y2 - size
+            else:
+                y2 = y1 + size
+
+            # 이미지 자르기
+            cropped_image = self.resized_image[y1:y2, x1:x2]
+
+            # 자른 이미지 표시
+            self.display_image(cropped_image)
+
+            # 마우스 이벤트 리셋
+            self.image_label.setCursor(Qt.ArrowCursor)
+            self.image_label.mousePressEvent = self.image_label.mouseMoveEvent = self.image_label.mouseReleaseEvent = None
+            self.crop_start = self.crop_end = None
+            
+    def save_image(self):
+        # 파일 대화 상자를 열어 이미지를 저장할 경로를 지정
+        options = QFileDialog.Options()
+        options |= QFileDialog.ReadOnly
+        filePath, _ = QFileDialog.getSaveFileName(
+            self, "Save Image File", "", "Images (*.png *.jpg *.bmp)", options=options
+        )
+
+        if filePath:
+            # 현재 적용된 필터가 적용된 이미지를 가져옴
+            current_image = self.resized_image.copy()  # 현재 적용된 필터가 적용된 이미지를 가져옴
+
+            if self.is_grayScale:
+                current_image = cv2.cvtColor(current_image, cv2.COLOR_BGR2GRAY)
+                current_image = cv2.cvtColor(current_image, cv2.COLOR_GRAY2RGB)
+            elif self.is_hsv:
+                current_image = cv2.cvtColor(current_image, cv2.COLOR_RGB2HSV)
+
+            # 이미지를 선택한 경로에 저장
+            success = cv2.imwrite(filePath, current_image)
+
+            if success:
+                QMessageBox.information(self, "Success", "Image saved successfully.")
+            else:
+                QMessageBox.critical(self, "Error", "Failed to save image.")
